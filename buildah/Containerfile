@@ -37,5 +37,10 @@ RUN mkdir -vp /home/${USERNAME}/.config/containers && \
 # RUN rm -f /home/runner/.config/containers/storage.conf && \
 #     podman system reset -f
 
+RUN echo "runner:2000:65534" > /etc/subuid && \
+    echo "runner:2000:65534" > /etc/suguid
+
 USER $UID
 
+# Some clusters have had issues with subuid/subgid
+RUN podman system migrate
