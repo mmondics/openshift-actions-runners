@@ -1,4 +1,4 @@
-ARG BASE_IMG=quay.io/mmondics/openshift-actions-runner:f40-manifest
+ARG BASE_IMG=quay.io/mmondics/openshift-actions-runner:v1-manifest
 FROM $BASE_IMG AS buildah-runner
 
 USER root
