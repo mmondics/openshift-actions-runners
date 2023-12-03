@@ -36,7 +36,7 @@ subgids_start=$(expr $gid + 1000)
 
 # Do not allocate too many.
 # https://github.com/containers/buildah/issues/3053
-no_subids=50000
+no_subids=65534
 
 echo "${username}:${subuids_start}:${no_subids}" | tee /etc/subuid
 echo "${username}:${subgids_start}:${no_subids}" | tee /etc/subgid
