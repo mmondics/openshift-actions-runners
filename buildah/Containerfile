@@ -1,4 +1,4 @@
-ARG BASE_IMG=quay.io/mmondics/openshift-actions-runner:3.3-manifest
+ARG BASE_IMG=quay.io/mmondics/openshift-actions-runner:v3.4-manifest
 FROM $BASE_IMG AS buildah-runner
 
 USER root
@@ -9,7 +9,7 @@ USER root
 # https://github.com/containers/buildah/issues/3053
 
 RUN dnf -y update && \
-    dnf -y install xz slirp4netns buildah podman fuse-overlayfs shadow-utils maven java-1.8.0-openjdk --exclude container-selinux && \
+    dnf -y install xz slirp4netns buildah podman fuse-overlayfs shadow-utils maven java-1.8.0-openjdk gh --exclude container-selinux && \
     dnf -y reinstall shadow-utils && \
     dnf clean all
 
